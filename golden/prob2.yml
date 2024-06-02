@@ -865,7 +865,7 @@ out_dbg: |
   INFO:root:output_buffer: '44'
   
 out_stdout: |
-  source LoC: 40 code instr: 729
+  source LoC: 39 code instr: 729
   ============================================================
   44
   instr_counter:  819 ticks: 2591
