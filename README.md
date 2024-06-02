@@ -1,4 +1,4 @@
-# Ценеков Дмитрий P3213
+# Ценеков Дмитрий P3210
 
 Вариант: `alg -> asm | acc | neum | hw | instr | struct | stream | mem | cstr | prob2 | cache`
 
