@@ -910,7 +910,7 @@ def simulation(mm, input_tokens, limit):
     logging.info("output_buffer: %s", repr("".join(data_path.output_buffer)))
     return "".join(data_path.output_buffer), instr_counter, control_unit.current_tick()
 
-def main(code_file, input_file):
+def main(code_file, input_file, debug_file=None):
     mm = MemoryManager()
     def read_code(file_name):
         try:
@@ -922,7 +922,8 @@ def main(code_file, input_file):
         except:
             print("Reading code error")
             exit(1)
-    
+    if debug_file is not None:
+        logging.basicConfig(filename=debug_file, filemode="w", level=logging.DEBUG, force=True)
     read_code(code_file)
     input_token = []
     with open(input_file, encoding="utf-8") as file:

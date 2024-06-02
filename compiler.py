@@ -1,23 +1,13 @@
 import sys
 
-file_name = "prog1.mjs"
-
 COMPILE_SETUP = {
         "MIN_ABS_VALUE_FOR_STORE_NUMBER_IN_CONSTANTS": 127,
         "STACK_SIZE": 512, # *4 bytes
     }
 
 
-programm = ""
-print('Reading '+file_name+'...')
-with open(file_name, 'rb') as file:
-    binary_data = file.read()
-    programm = binary_data.decode('utf-8')
-print('Length: '+str(len(programm)))
-print('Tokenization...');
 
 
-        
 def tokenize(programm):
     in_string = False;
     _string = "";
@@ -290,15 +280,15 @@ def build_ast(tokens):
             if tokens[0]['t']=='MATH' and tokens[0]['v'] == ')':
                 break
             if check(tokens, lambda x: x['t'] == 'TYPE'):
-                print('1')
+                #print('1')
                 return None
             _type = tokens.pop(0)
             if check(tokens, lambda x: x['t'] == 'VARIBLE'):
-                print('2')
+                #print('2')
                 return None
             _name = tokens.pop(0)
             if check(tokens, lambda x: x['t'] == 'MATH' and x['v'] in (',', ')')):
-                print('3')
+                #print('3')
                 return None
             list.append([_type['v'],_name['v'], _type['pos']])
             if tokens[0]['v']==')':
@@ -1020,15 +1010,15 @@ def compileAST(AST):
             calc_vars_and_funcs(data.value["node"],data)
             #print('---')
             #print(data.name)
-            print_ast(data.value["node"])
+            #print_ast(data.value["node"])
             data.value["cut_node"] = data.value["node"]
             del data.value["node"]
         global_stack = []
         for i in asm_data:
-            print(i.name, i.datatype, i.type, i.is_global, i.value)
+            #print(i.name, i.datatype, i.type, i.is_global, i.value)
             if i.is_global and i.name!='':
                 global_stack.append(i.fullname)
-        print(global_stack)
+        #print(global_stack)
         for i in asm_data:
             if i.type == 'f':
                 scope = global_stack.copy()
@@ -1037,18 +1027,13 @@ def compileAST(AST):
                 for arg in i.value["args"]:
                     scope.append('v:'+arg[1]+':'+str(arg[2]))
                 i.value["asm"]=compile_branch(i.value["cut_node"], i, scope)
-                print(i.name)
-                print(' - '+'\n - '.join(i.value["asm"]))
+                #print(i.name)
+                #print(' - '+'\n - '.join(i.value["asm"]))
         return asm_data
     return compile_global_function(AST)
 
 
-# TODO variable is already defined + test in arg
-# TODO return in function
-if compile_errors:
-    for error in compile_errors:
-        print(error)
-    exit(1)
+
 
 # Example:
 #   PUSH 9
@@ -1134,7 +1119,7 @@ def linkASM(asm_datas):
             for key in range(len(cmd)):
                 percents_text = find_value_between_percents(cmd[key])
                 if percents_text is not None:
-                    print(percents_text)
+                    #print(percents_text)
                     percents_text=percents_text.split(":")
                     def find_varible(name, pos, for_array = False):
                         for i in asm_datas:
@@ -1222,12 +1207,12 @@ def linkASM(asm_datas):
                 i.value["asm"].append("HALT")
             else:
                 i.value["asm"].append("RET")
-    print(global_const)
-    print(ASM);
-    for i in asm_datas:
-        print(i.name, i.datatype, i.type, i.pos, i.is_global, i.value)
+    #print(global_const)
+    #print(ASM);
+    #for i in asm_datas:
+    #    print(i.name, i.datatype, i.type, i.pos, i.is_global, i.value)
     linkFunction(asm_datas[0])
-    print(ASM);
+    #print(ASM);
     return ASM;
 
 
@@ -1242,9 +1227,6 @@ def main(source, target):
     with open(source, encoding="utf-8") as f:
         source = f.read()
     tokens = tokenize(source)
-    for t in tokens:
-        print(t)
-
     ast = build_ast(tokens)
 
     if ast_errors:
@@ -1252,6 +1234,12 @@ def main(source, target):
             print(error)
         exit(1)
     ASM = compileAST(ast)
+    # TODO variable is already defined + test in arg
+    # TODO return in function
+    if compile_errors:
+        for error in compile_errors:
+            print(error)
+        exit(1)
     ASM = linkASM(ASM)
     write_code(target, ASM)
     print("source LoC:", len(source.split("\n")), "code instr:", len(ASM))
