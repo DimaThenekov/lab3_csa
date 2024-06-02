@@ -1,0 +1,108 @@
+in_source: |-
+  int32 in = IN()
+  while(in){
+      OUT(in)
+      in = IN()
+  }
+in_stdin: |-
+  Alice
+out_dbg: |
+  DEBUG:root:TICK:    0 ACC:      0 SP:      0 AR:      0 IP:      0 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: [] INST: JMP 514
+  DEBUG:root:TICK:    1 ACC:      0 SP:      0 AR:      0 IP:    514 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: [] INST: INT IN
+  DEBUG:root:TICK:    2 ACC:     65 SP:      0 AR:    514 IP:    515 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: [] INST: PUSH EAX
+  DEBUG:root:TICK:    5 ACC:     65 SP:      1 AR:      1 IP:    516 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: [] INST: POP
+  DEBUG:root:TICK:    9 ACC:     65 SP:      0 AR:      1 IP:    517 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: [] INST: MOV [513], EAX # :=
+  DEBUG:root:TICK:   11 ACC:     65 SP:      0 AR:    513 IP:    518 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: [] INST: MOV EAX, [513]
+  DEBUG:root:TICK:   14 ACC:     65 SP:      0 AR:    513 IP:    519 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: [] INST: PUSH EAX
+  DEBUG:root:TICK:   17 ACC:     65 SP:      1 AR:      1 IP:    520 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: [] INST: POP
+  DEBUG:root:TICK:   21 ACC:     65 SP:      0 AR:      1 IP:    521 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: [] INST: CMP 0
+  DEBUG:root:TICK:   22 ACC:     65 SP:      0 AR:    521 IP:    522 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: [] INST: JMP E IP+11 # while condition
+  DEBUG:root:TICK:   22 ACC:     65 SP:      0 AR:    522 IP:    523 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: [] INST: MOV EAX, [513]
+  DEBUG:root:TICK:   25 ACC:     65 SP:      0 AR:    513 IP:    524 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: [] INST: PUSH EAX
+  DEBUG:root:TICK:   28 ACC:     65 SP:      1 AR:      1 IP:    525 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: [] INST: POP
+  DEBUG:root:TICK:   32 ACC:     65 SP:      0 AR:      1 IP:    526 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: [] INST: INT OUT
+  DEBUG:root:TICK:   33 ACC:     65 SP:      0 AR:    526 IP:    527 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: PUSH 0
+  DEBUG:root:TICK:   36 ACC:     65 SP:      1 AR:      1 IP:    528 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: POP
+  DEBUG:root:TICK:   40 ACC:      0 SP:      0 AR:      1 IP:    529 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: INT IN
+  DEBUG:root:TICK:   41 ACC:    108 SP:      0 AR:    529 IP:    530 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: PUSH EAX
+  DEBUG:root:TICK:   44 ACC:    108 SP:      1 AR:      1 IP:    531 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: POP
+  DEBUG:root:TICK:   48 ACC:    108 SP:      0 AR:      1 IP:    532 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: MOV [513], EAX
+  DEBUG:root:TICK:   50 ACC:    108 SP:      0 AR:    513 IP:    533 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: JMP IP-16 # while jamp
+  DEBUG:root:TICK:   52 ACC:    108 SP:      0 AR:    534 IP:    518 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: MOV EAX, [513]
+  DEBUG:root:TICK:   55 ACC:    108 SP:      0 AR:    513 IP:    519 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: PUSH EAX
+  DEBUG:root:TICK:   58 ACC:    108 SP:      1 AR:      1 IP:    520 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: POP
+  DEBUG:root:TICK:   62 ACC:    108 SP:      0 AR:      1 IP:    521 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: CMP 0
+  DEBUG:root:TICK:   63 ACC:    108 SP:      0 AR:    521 IP:    522 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: JMP E IP+11 # while condition
+  DEBUG:root:TICK:   63 ACC:    108 SP:      0 AR:    522 IP:    523 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: MOV EAX, [513]
+  DEBUG:root:TICK:   66 ACC:    108 SP:      0 AR:    513 IP:    524 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: PUSH EAX
+  DEBUG:root:TICK:   69 ACC:    108 SP:      1 AR:      1 IP:    525 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: POP
+  DEBUG:root:TICK:   73 ACC:    108 SP:      0 AR:      1 IP:    526 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A'] INST: INT OUT
+  DEBUG:root:TICK:   74 ACC:    108 SP:      0 AR:    526 IP:    527 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: PUSH 0
+  DEBUG:root:TICK:   77 ACC:    108 SP:      1 AR:      1 IP:    528 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: POP
+  DEBUG:root:TICK:   81 ACC:      0 SP:      0 AR:      1 IP:    529 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: INT IN
+  DEBUG:root:TICK:   82 ACC:    105 SP:      0 AR:    529 IP:    530 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: PUSH EAX
+  DEBUG:root:TICK:   85 ACC:    105 SP:      1 AR:      1 IP:    531 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: POP
+  DEBUG:root:TICK:   89 ACC:    105 SP:      0 AR:      1 IP:    532 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: MOV [513], EAX
+  DEBUG:root:TICK:   91 ACC:    105 SP:      0 AR:    513 IP:    533 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: JMP IP-16 # while jamp
+  DEBUG:root:TICK:   93 ACC:    105 SP:      0 AR:    534 IP:    518 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: MOV EAX, [513]
+  DEBUG:root:TICK:   96 ACC:    105 SP:      0 AR:    513 IP:    519 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: PUSH EAX
+  DEBUG:root:TICK:   99 ACC:    105 SP:      1 AR:      1 IP:    520 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: POP
+  DEBUG:root:TICK:  103 ACC:    105 SP:      0 AR:      1 IP:    521 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: CMP 0
+  DEBUG:root:TICK:  104 ACC:    105 SP:      0 AR:    521 IP:    522 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: JMP E IP+11 # while condition
+  DEBUG:root:TICK:  104 ACC:    105 SP:      0 AR:    522 IP:    523 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: MOV EAX, [513]
+  DEBUG:root:TICK:  107 ACC:    105 SP:      0 AR:    513 IP:    524 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: PUSH EAX
+  DEBUG:root:TICK:  110 ACC:    105 SP:      1 AR:      1 IP:    525 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: POP
+  DEBUG:root:TICK:  114 ACC:    105 SP:      0 AR:      1 IP:    526 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l'] INST: INT OUT
+  DEBUG:root:TICK:  115 ACC:    105 SP:      0 AR:    526 IP:    527 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: PUSH 0
+  DEBUG:root:TICK:  118 ACC:    105 SP:      1 AR:      1 IP:    528 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: POP
+  DEBUG:root:TICK:  122 ACC:      0 SP:      0 AR:      1 IP:    529 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: INT IN
+  DEBUG:root:TICK:  123 ACC:     99 SP:      0 AR:    529 IP:    530 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: PUSH EAX
+  DEBUG:root:TICK:  126 ACC:     99 SP:      1 AR:      1 IP:    531 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: POP
+  DEBUG:root:TICK:  130 ACC:     99 SP:      0 AR:      1 IP:    532 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: MOV [513], EAX
+  DEBUG:root:TICK:  132 ACC:     99 SP:      0 AR:    513 IP:    533 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: JMP IP-16 # while jamp
+  DEBUG:root:TICK:  134 ACC:     99 SP:      0 AR:    534 IP:    518 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: MOV EAX, [513]
+  DEBUG:root:TICK:  137 ACC:     99 SP:      0 AR:    513 IP:    519 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: PUSH EAX
+  DEBUG:root:TICK:  140 ACC:     99 SP:      1 AR:      1 IP:    520 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: POP
+  DEBUG:root:TICK:  144 ACC:     99 SP:      0 AR:      1 IP:    521 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: CMP 0
+  DEBUG:root:TICK:  145 ACC:     99 SP:      0 AR:    521 IP:    522 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: JMP E IP+11 # while condition
+  DEBUG:root:TICK:  145 ACC:     99 SP:      0 AR:    522 IP:    523 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: MOV EAX, [513]
+  DEBUG:root:TICK:  148 ACC:     99 SP:      0 AR:    513 IP:    524 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: PUSH EAX
+  DEBUG:root:TICK:  151 ACC:     99 SP:      1 AR:      1 IP:    525 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: POP
+  DEBUG:root:TICK:  155 ACC:     99 SP:      0 AR:      1 IP:    526 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i'] INST: INT OUT
+  DEBUG:root:TICK:  156 ACC:     99 SP:      0 AR:    526 IP:    527 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: PUSH 0
+  DEBUG:root:TICK:  159 ACC:     99 SP:      1 AR:      1 IP:    528 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: POP
+  DEBUG:root:TICK:  163 ACC:      0 SP:      0 AR:      1 IP:    529 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: INT IN
+  DEBUG:root:TICK:  164 ACC:    101 SP:      0 AR:    529 IP:    530 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: PUSH EAX
+  DEBUG:root:TICK:  167 ACC:    101 SP:      1 AR:      1 IP:    531 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: POP
+  DEBUG:root:TICK:  171 ACC:    101 SP:      0 AR:      1 IP:    532 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: MOV [513], EAX
+  DEBUG:root:TICK:  173 ACC:    101 SP:      0 AR:    513 IP:    533 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: JMP IP-16 # while jamp
+  DEBUG:root:TICK:  175 ACC:    101 SP:      0 AR:    534 IP:    518 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: MOV EAX, [513]
+  DEBUG:root:TICK:  178 ACC:    101 SP:      0 AR:    513 IP:    519 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: PUSH EAX
+  DEBUG:root:TICK:  181 ACC:    101 SP:      1 AR:      1 IP:    520 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: POP
+  DEBUG:root:TICK:  185 ACC:    101 SP:      0 AR:      1 IP:    521 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: CMP 0
+  DEBUG:root:TICK:  186 ACC:    101 SP:      0 AR:    521 IP:    522 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: JMP E IP+11 # while condition
+  DEBUG:root:TICK:  186 ACC:    101 SP:      0 AR:    522 IP:    523 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: MOV EAX, [513]
+  DEBUG:root:TICK:  189 ACC:    101 SP:      0 AR:    513 IP:    524 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: PUSH EAX
+  DEBUG:root:TICK:  192 ACC:    101 SP:      1 AR:      1 IP:    525 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: POP
+  DEBUG:root:TICK:  196 ACC:    101 SP:      0 AR:      1 IP:    526 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c'] INST: INT OUT
+  DEBUG:root:TICK:  197 ACC:    101 SP:      0 AR:    526 IP:    527 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: PUSH 0
+  DEBUG:root:TICK:  200 ACC:    101 SP:      1 AR:      1 IP:    528 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: POP
+  DEBUG:root:TICK:  204 ACC:      0 SP:      0 AR:      1 IP:    529 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: INT IN
+  DEBUG:root:TICK:  205 ACC:      0 SP:      0 AR:    529 IP:    530 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: PUSH EAX
+  DEBUG:root:TICK:  208 ACC:      0 SP:      1 AR:      1 IP:    531 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: POP
+  DEBUG:root:TICK:  212 ACC:      0 SP:      0 AR:      1 IP:    532 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: MOV [513], EAX
+  DEBUG:root:TICK:  214 ACC:      0 SP:      0 AR:    513 IP:    533 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: JMP IP-16 # while jamp
+  DEBUG:root:TICK:  216 ACC:      0 SP:      0 AR:    534 IP:    518 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: MOV EAX, [513]
+  DEBUG:root:TICK:  219 ACC:      0 SP:      0 AR:    513 IP:    519 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: PUSH EAX
+  DEBUG:root:TICK:  222 ACC:      0 SP:      1 AR:      1 IP:    520 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: POP
+  DEBUG:root:TICK:  226 ACC:      0 SP:      0 AR:      1 IP:    521 Flags: {'OF': False, 'C': False, 'Z': False, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: CMP 0
+  DEBUG:root:TICK:  227 ACC:      0 SP:      0 AR:    521 IP:    522 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: JMP E IP+11 # while condition
+  DEBUG:root:TICK:  229 ACC:      0 SP:      0 AR:    523 IP:    534 Flags: {'OF': False, 'C': False, 'Z': True, 'S': False} OUT: ['A', 'l', 'i', 'c', 'e'] INST: HALT
+  INFO:root:output_buffer: 'Alice'
+  
+out_stdout: |
+  source LoC: 5 code instr: 535
+  ============================================================
+  Alice
+  instr_counter:  90 ticks: 229
+  
